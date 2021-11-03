@@ -4,11 +4,16 @@
   "description": "clean blop app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon node.js"
   },
   "author": "oguz gul",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^2.0.14",
     "prettier": "2.4.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
