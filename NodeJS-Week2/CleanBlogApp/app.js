@@ -6,6 +6,7 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const pageController = require('./controllers/pageController');
+const postController = require('./controllers/postController');
 
 const app = express();
 
@@ -49,8 +50,17 @@ app.get('/add_post', pageController.getAddpostPage);
 // on the request to edit page - ROUTES
 app.get('/allposts/edit/:id', pageController.getEditPage);
 
+// post response to post page
+app.post('/add_post', postController.createPost);
+
+// delete response to post page
+app.delete('/allposts/:id', postController.deletePost);
+
+// update response to post page
+app.put('/allposts/:id', postController.editPost);
+
 // Port listening and configuration
 const port = 3000;
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server is starting ${port} on the port`);
 });
