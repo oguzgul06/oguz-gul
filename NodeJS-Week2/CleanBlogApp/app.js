@@ -2,11 +2,15 @@
 const express = require('express');
 const app = express();
 
+// Import path module
+const path = require('path');
+
+//Static file configuration - (Middleware)
+app.use(express.static('public'));
+
+// on the request to root page
 app.get('/', (req, res) => {
-    const blog ={
-        id: 1, title: "Blog title", description: "Blog description"
-    }
-    res.send(blog);
+    res.sendFile(path.resolve(__dirname, 'temp/index.html'));
 });
 
 // Port listening and configuration
