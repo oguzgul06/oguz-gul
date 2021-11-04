@@ -30,12 +30,12 @@
           <div class="post-preview">
             <a href="allposts/<%= allposts[i]._id %>">
 
-              <h2 class="post-title"> <%= allposts[i].title %> </h2>
-              <h3 class="post-subtitle"> <%= allposts[i].detail %></h3>
+              <h2 class="post-title"> <%= allposts[i].name %> </h2>
+              <h3 class="post-subtitle"> <%= allposts[i].message %></h3>
 
             </a>
 
-            <p class="post-meta">Posted by <a href="/about">Oğuz GÜL</a> <%= allposts[i].dateCreated.toDateString() %></p>
+            <p class="post-meta">Posted by <a href="/about"></a> <%= allposts[i].dateCreated.toDateString() %></p>
             
           </div>
           <hr>
