@@ -12,15 +12,18 @@ const app = express();
 
 //Connect Db
 mongoose
-    .connect('mongodb://localhost/clean-blog-db', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    .connect(
+        'mongodb+srv://admin:admin@cluster0.rysg6.mongodb.net/clean-blog-db?retryWrites=true&w=majority',
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        }
+    )
     .then(() => {
         console.log('db connection successful');
     })
     .catch((err) => {
-        console.log('db connection failed');
+        console.log(err);
     });
 
 // Template Engine
@@ -37,9 +40,8 @@ app.use(
 );
 
 // on the request to root page - ROUTES
-app.get('/', (req, res) => {
-    res.render('index');
-});
+app.get('/', postController.getAllPosts);
+app.get('/allposts/:id', postController.getPost);
 
 // on the request to about page - ROUTES
 app.get('/about', pageController.getAboutPage);

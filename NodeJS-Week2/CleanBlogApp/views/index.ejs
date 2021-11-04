@@ -1,6 +1,6 @@
  <!--Header-->
 <%- include('partials/_header') -%>
-
+ <body>
 
   <!-- Navigation -->
   <%- include('partials/_nav') -%>
@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        <% for(let i=0;i<allposts.length;i++){ %>
+        <% for(let i=0; i< allposts.length; i++){ %>
 
           <div class="post-preview">
             <a href="allposts/<%= allposts[i]._id %>">
@@ -35,7 +35,7 @@
 
             </a>
 
-            <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> <%= allposts[i].dateCreated %></p>
+            <p class="post-meta">Posted by <a href="/about">Oğuz GÜL</a> <%= allposts[i].dateCreated.toDateString() %></p>
             
           </div>
           <hr>
@@ -53,6 +53,4 @@
   <!--Footer-->
   <%- include('partials/_footer') -%>
 
-</body>
 
-</html>
